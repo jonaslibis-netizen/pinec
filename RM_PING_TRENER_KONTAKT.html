@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>RM PING TRENÉR | Stolní tenis pro začátečníky</title>
+  <style>
+    :root{--ink:#172033;--muted:#687386;--blue:#2563eb;--blue2:#dceafe;--line:#e8edf4;--paper:#fff;--bg:#f5f7fb}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    header{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.86);backdrop-filter:blur(18px);border-bottom:1px solid #e9edf3}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-weight:850;letter-spacing:-.7px;font-size:20px}.brand span{color:var(--blue)}
+    nav{display:flex;gap:26px;color:#596477;font-size:14px;font-weight:600}nav a:hover{color:var(--blue)}
+    .navbtn,.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;background:var(--blue);color:#fff;padding:12px 20px;font-weight:700;border:0;cursor:pointer;transition:.2s}
+    .navbtn:hover,.btn:hover{background:#174bc0;transform:translateY(-1px)}.menu{display:none;border:0;background:none;font-size:25px}
+    .hero{padding:76px 0 62px}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:54px}
+    .eyebrow{display:inline-flex;gap:8px;align-items:center;background:#eaf1ff;color:#2456bd;padding:7px 12px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
+    h1{font-size:clamp(42px,6vw,68px);line-height:1.03;letter-spacing:-3px;margin:20px 0}.hero p{font-size:18px;color:var(--muted);max-width:520px}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn.secondary{background:#fff;color:var(--ink);border:1px solid var(--line)}.btn.secondary:hover{background:#f0f4fa}
+    .hero-image{min-height:390px;border-radius:30px;overflow:hidden;position:relative;background:linear-gradient(145deg,#dbeafe,#9bbcf2);box-shadow:0 24px 60px #193b761c}
+    .hero-image img{width:100%;height:100%;min-height:390px;object-fit:cover;display:block}.image-note{position:absolute;bottom:18px;left:18px;background:#ffffffed;border-radius:16px;padding:12px 16px;font-weight:750;box-shadow:0 8px 24px #0001}
+    section{padding:68px 0}.section-head{text-align:center;max-width:650px;margin:0 auto 34px}.kicker{color:var(--blue);font-size:12px;font-weight:850;letter-spacing:1.4px;text-transform:uppercase}.section-head h2{font-size:clamp(30px,4vw,42px);letter-spacing:-1.5px;line-height:1.15;margin:9px 0}.section-head p{color:var(--muted);margin:0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:25px;box-shadow:0 8px 28px #1c31500a}
+    .icon{width:46px;height:46px;border-radius:14px;background:var(--blue2);display:grid;place-items:center;font-size:22px;margin-bottom:17px}.card h3{margin:0 0 7px;font-size:19px}.card p{color:var(--muted);margin:0;font-size:15px}
+    .about{background:#fff}.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center}.about-art{border-radius:26px;min-height:320px;background:linear-gradient(135deg,#dceafe,#f0f5ff);display:grid;place-items:center;font-size:100px}
+    .about-copy h2{font-size:38px;letter-spacing:-1.5px;line-height:1.15;margin:10px 0 15px}.about-copy p{color:var(--muted)}.ticks{padding:0;list-style:none;display:grid;gap:10px;margin:22px 0}.ticks li:before{content:"✓";color:var(--blue);font-weight:900;margin-right:10px}
+    .price{font-size:34px;font-weight:850;letter-spacing:-1px;margin:14px 0 2px}.price small{font-size:14px;color:var(--muted);font-weight:500;letter-spacing:0}.price-card{border:2px solid #cbdcff;position:relative}.price-card .tag{position:absolute;right:18px;top:18px;background:#eaf1ff;color:#2456bd;padding:5px 9px;border-radius:99px;font-size:11px;font-weight:800}
+    .gallery{display:grid;grid-template-columns:1.2fr .8fr;gap:16px}.gallery img{width:100%;height:250px;object-fit:cover;border-radius:22px;display:block}.gallery .stack{display:grid;gap:16px}.gallery .stack img{height:117px}
+    .booking{background:#101b31;color:#fff}.booking .section-head p{color:#b8c3d6}.booking-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:35px;align-items:start}.booking-info p{color:#bdc8d9}.contact-line{padding:13px 0;border-bottom:1px solid #ffffff20;color:#e8eef8}
+    form{background:#fff;color:var(--ink);padding:26px;border-radius:24px;display:grid;gap:14px}label{font-size:13px;font-weight:750}input,select,textarea{width:100%;margin-top:6px;padding:13px 14px;border:1px solid #dce3ed;border-radius:12px;font:inherit;background:#fbfcfe;color:var(--ink)}textarea{min-height:95px;resize:vertical}form .btn{width:100%;font:inherit}
+    .notice{font-size:12px;color:#718096;margin:0}.success{display:none;background:#e9f8ef;color:#17653a;padding:12px;border-radius:12px;font-size:14px}
+    footer{padding:28px 0;color:#7b8798;font-size:13px}.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    @media(max-width:800px){nav{display:none}.menu{display:block}.navbtn{padding:10px 14px}.hero{padding-top:48px}.hero-grid,.about-grid,.booking-grid{grid-template-columns:1fr;gap:28px}.hero-image,.hero-image img{min-height:280px}.cards{grid-template-columns:1fr}.gallery{grid-template-columns:1fr}.gallery .stack{grid-template-columns:1fr 1fr}.gallery .stack img{height:130px}.about-art{min-height:220px}.hero h1{letter-spacing:-2px}}
+    @media(max-width:430px){.wrap{width:min(100% - 28px,1120px)}.nav{height:64px}.brand{font-size:17px}.navbtn{font-size:12px}.hero p{font-size:16px}.gallery .stack{grid-template-columns:1fr}.gallery .stack img{height:180px}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#domu">RM <span>PING</span> TRENÉR</a>
+    <nav aria-label="Hlavní navigace"><a href="#treninky">Tréninky</a><a href="#omne">O trenérovi</a><a href="#cenik">Ceník</a><a href="#galerie">Galerie</a><a href="#kontakt">Kontakt</a></nav>
+    <a class="navbtn" href="#rezervace">Domluvit trénink</a>
+    <button class="menu" aria-label="Otevřít navigaci" onclick="document.querySelector('nav').style.display=document.querySelector('nav').style.display==='flex'?'none':'flex'">☰</button>
+  </div>
+</header>
+<main id="domu">
+  <div class="wrap hero">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">🏓 Stolní tenis pro začátečníky</span>
+        <h1>Každý dobrý hráč někde začínal.</h1>
+        <p>Chceš se naučit hrát ping-pong, zlepšit základní údery a získat jistotu u stolu? Pojďme na to krok za krokem.</p>
+        <div class="actions"><a class="btn" href="#rezervace">Chci začít trénovat</a><a class="btn secondary" href="#treninky">Prohlédnout tréninky</a></div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1611251135345-18c56206b863?auto=format&fit=crop&w=1200&q=85" alt="Pálka a míček na stole pro stolní tenis" onerror="this.style.display='none'">
+        <div class="image-note">Začni od základů. Zlepšuj se vlastním tempem.</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="treninky">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Co tě čeká</div><h2>Trénink, který dává smysl.</h2><p>Žádný zbytečný tlak. Nejdřív se naučíš základy a postupně přidáme další dovednosti.</p></div>
+      <div class="cards">
+        <article class="card"><div class="icon">🏓</div><h3>Základy stolního tenisu</h3><p>Správné držení pálky, postoj, pohyb u stolu a první výměny.</p></article>
+        <article class="card"><div class="icon">🎯</div><h3>Údery a přesnost</h3><p>Nácvik základních úderů, kontrola míčku a přesnější umístění.</p></article>
+        <article class="card"><div class="icon">🚀</div><h3>Hra a sebejistota</h3><p>Jednoduchá cvičení, pravidla a přátelská hra, ve které využiješ, co ses naučil.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="omne">
+    <div class="wrap about-grid">
+      <div class="about-art" aria-label="Ilustrace stolního tenisu">🏓</div>
+      <div class="about-copy"><div class="kicker">O trenérovi</div><h2>Ahoj, jsem Ríša.</h2><p>Vítám tě na stránkách RM PING TRENÉR. Chci pomáhat začátečníkům poznat stolní tenis, naučit se jeho základy a užít si každou povedenou výměnu.</p><p>Tréninky přizpůsobíme tvým zkušenostem a tempu. Důležité je začít a postupně se zlepšovat.</p><ul class="ticks"><li>Vhodné pro úplné začátečníky</li><li>Srozumitelné vysvětlení a praktický nácvik</li><li>Přátelský přístup bez zbytečného stresu</li></ul></div>
+    </div>
+  </section>
+
+  <section id="cenik">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Ceník</div><h2>Jednoduše a přehledně.</h2><p>Cenu a délku lekce si můžeš upravit podle toho, jak budeš tréninky skutečně nabízet.</p></div>
+      <div class="cards">
+        <article class="card price-card"><span class="tag">DOPORUČENO</span><h3>Individuální trénink</h3><div class="price">150 Kč <small>/ lekce</small></div><p>Trénink přizpůsobený jednomu hráči. Délka lekce: po domluvě.</p><div class="actions"><a class="btn" href="#rezervace">Mám zájem</a></div></article>
+        <article class="card"><div class="icon">👥</div><h3>Trénink ve dvojici</h3><div class="price">100 Kč <small>/ osoba / lekce</small></div><p>Procvičování ve dvojici s kamarádem nebo sourozencem.</p></article>
+        <article class="card"><div class="icon">📍</div><h3>Místo tréninku</h3><div class="price" style="font-size:25px"><a href="https://www.google.com/maps/search/?api=1&query=Z%C5%A0+HELLO%2C+%C4%8Cs.+exilu+491%2F23%2C+Ostrava-Poruba" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-decoration-color:#9bbcf2">HELLO základní škola ↗</a></div><p>Tréninky na této adrese pouze po předchozí domluvě a se souhlasem školy.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="galerie">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Atmosféra</div><h2>Stolní tenis v akci.</h2><p>Prostor pro fotografie z tréninků a ukázky vybavení.</p></div>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1609710228159-0fa9bd7c0827?auto=format&fit=crop&w=1000&q=85" alt="Hráči při stolním tenisu">
+        <div class="stack"><img src="https://images.unsplash.com/photo-1611251135345-18c56206b863?auto=format&fit=crop&w=700&q=85" alt="Vybavení na stolní tenis"><img src="https://images.unsplash.com/photo-1622279457486-62dcc4a431d6?auto=format&fit=crop&w=700&q=85" alt="Stůl na stolní tenis"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="booking" id="kontakt">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Kontakt a rezervace</div><h2>Domluvíme tvůj první trénink?</h2><p>Napiš mi, o jaký trénink máš zájem. Ozvu se s možnostmi domluvy.</p></div>
+      <div class="booking-grid">
+        <div class="booking-info"><h3>RM PING TRENÉR</h3><p>První krok ke stolnímu tenisu můžeš udělat právě teď.</p><div class="contact-line">📍 Místo: <a href="https://www.google.com/maps/search/?api=1&query=Z%C5%A0+HELLO%2C+%C4%8Cs.+exilu+491%2F23%2C+Ostrava-Poruba" target="_blank" rel="noopener noreferrer" style="color:#9fc2ff;text-decoration:underline;font-weight:750">HELLO základní škola – otevřít v Mapách Google ↗</a></div><div class="contact-line">✉️ E-mail: <a href="mailto:jonaslibis@gmail.com" style="color:#9fc2ff;text-decoration:underline;font-weight:750">jonaslibis@gmail.com – napsat e-mail ↗</a></div>
+          <div class="contact-line">📞 Telefon: <a href="tel:+420725528904" style="color:#9fc2ff;text-decoration:underline;font-weight:750">725 528 904 – zavolat ↗</a></div><p style="font-size:13px">Kontaktní údaje doplň až po domluvě s rodičem nebo zákonným zástupcem.</p></div>
+        <form id="bookingForm">
+          <div class="success" id="success">Děkuji! Formulář je připravený jako ukázka. Pro skutečné odesílání je potřeba připojit e-mail nebo rezervační službu.</div>
+          <label>Jméno<input name="name" required placeholder="Jak ti máme říkat?"></label>
+          <label>Kontaktní e-mail<input name="email" type="email" required placeholder="tvuj@email.cz"></label>
+          <label>O jaký trénink máš zájem?<select name="type"><option>Individuální trénink</option><option>Trénink ve dvojici</option><option>Chci se nejdřív na něco zeptat</option></select></label>
+          <label>Zpráva<textarea name="message" placeholder="Napiš, jaké máš zkušenosti a kdy by se ti trénink hodil."></textarea></label>
+          <button class="btn" type="submit">Odeslat nezávaznou poptávku</button>
+          <p class="notice">Ukázkový formulář – zatím nic neposílá ani neukládá. Kontaktní údaje na veřejný web zveřejňuj jen se souhlasem rodiče nebo zákonného zástupce.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap foot"><strong>RM PING TRENÉR</strong><span>© <span id="year"></span> RM PING TRENÉR · Stolní tenis pro začátečníky</span></div></footer>
+<script>
+  document.getElementById('year').textContent=new Date().getFullYear();
+  document.getElementById('bookingForm').addEventListener('submit',function(e){e.preventDefault();document.getElementById('success').style.display='block';this.reset();});
+</script>
+</body>
+</html>
